@@ -1,0 +1,154 @@
+                   jamboard link
+https://jamboard.google.com/d/1axXLJPj2twlBA0ZjZxLgQ3-ZCqV7X4AtRYsXz9cD7ew/viewer?f=9    
+
+                    pastiebin link
+   https://pastiebin.com/6369cc1ef172f
+            
+ notes:
+            
+            STACK:
+            
+   class Stack {
+  constructor(maxSize) {
+    this.item = [];
+    this.limit = maxSize;
+  }
+
+  isEmpty() {
+    return this.item.length == 0;
+  }
+
+  push(element) {
+    if(this.item.length == this.limit) {
+      console.log("Stack already Full");
+      return;
+    }
+    console.log("Pushed Stack -> " + element);
+    this.item.push(element);
+  }
+
+  pop() {
+    if(this.isEmpty()) {
+      console.log("Stack is Empty");
+      return -1;
+    }
+
+    return this.item.pop();
+  }
+
+  top() {
+    if(this.isEmpty()) {
+      console.log("Stack is Empty");
+      return -1;
+    }
+
+    return this.item[this.item.length-1];
+  }
+
+  size() {
+    return this.item.length;
+  }
+  
+  print() {
+    while(!this.isEmpty()) {
+      console.log(this.pop());
+    }
+  }
+
+
+}
+
+var stack = new Stack(10);
+stack.push(1);
+stack.push(2);
+stack.push(3);
+//stack.pop()
+//console.log("Poped -> " + stack.pop());
+stack.push(4);
+stack.push(5);
+stack.push(6);
+stack.push(7);
+stack.push(8);
+stack.push(9);
+stack.push(10);
+stack.push(11);
+//stack.pop()
+//console.log("Poped -> " + stack.pop());
+console.log("Print Stack in Top Dowm")
+stack.print();
+   
+                     pastiebin link
+   https://pastiebin.com/6369d7cc17cad
+   
+   notes:
+     
+     function printNGE(arr, n) {
+  var s = [];
+
+
+  for(var i = 0; i < n; i++) {
+    if(s.length == 0) {
+      s.push(arr[i]);
+      continue;
+    }
+
+    while(s.length != 0 && s[s.length - 1] < arr[i]) {
+      console.log(s[s.length - 1] + " -> " + arr[i]);
+      s.pop();
+    }
+
+    s.push(arr[i]);
+  }
+
+  while(s.length != 0) {
+    console.log(s[s.length - 1] + " -> -1");
+    s.pop();
+  }
+}
+
+var arr = [5,3,6,7,15,2,8]
+var n = arr.length;
+printNGE(arr, n)
+
+
+
+
+
+function printNGEWithMap(arr, n) {
+  var s = [];
+  var map = {}
+
+
+  for(var i = 0; i < n; i++) {
+    if(s.length == 0) {
+      s.push(arr[i]);
+      continue;
+    }
+
+    while(s.length != 0 && s[s.length - 1] < arr[i]) {
+      map[s[s.length - 1]] = arr[i];
+      //console.log(s[s.length - 1] + " -> " + arr[i]);
+      s.pop();
+    }
+
+    s.push(arr[i]);
+  }
+
+  while(s.length != 0) {
+     map[s[s.length - 1]] = -1;
+    //console.log(s[s.length - 1] + " -> -1");
+    s.pop();
+  }
+  for(var i = 0; i <n ; i++) {
+    console.log(arr[i] + " -> " + map[arr[i]]);
+  }
+
+}
+
+var arr = [5,3,6,7,15,2,8]
+var n = arr.length;
+console.log(arr);
+printNGEWithMap(arr, n)
+
+   
+   
