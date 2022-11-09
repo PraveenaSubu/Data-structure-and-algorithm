@@ -81,7 +81,10 @@ stack.print();
    https://pastiebin.com/6369d7cc17cad
    
    notes:
-     
+   
+  Next created Elements:
+    Arr: 5 3 6 7 15 2 8
+Ans:
      function printNGE(arr, n) {
   var s = [];
 
