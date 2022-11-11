@@ -1,0 +1,72 @@
+              Link
+   https://www.geeksforgeeks.org/heap-sort/
+   
+             Queue link
+   https://jamboard.google.com/d/18KaJlgq33lqF2OkvUprIptnx9oFtgMJLGE7wt_fjIxE/viewer?f=13
+   
+             Tree link
+   https://jamboard.google.com/d/1ZQogFXl6VbzsVOzFhEF35IFQewlmadm2V0846WwyS8U/viewer?f=7
+   
+             JS Programme link
+   https://www.geeksforgeeks.org/javascript-program-to-check-if-a-singly-linked-list-is-palindrome/          
+   
+               Level link
+   https://www.geeksforgeeks.org/level-order-tree-traversal/
+   
+   
+    Pasteibin link
+   https://pastiebin.com/636dcc402db47
+   
+   
+   class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+var root = null;
+var node = new TreeNode(1);
+root = node;
+root.left = new TreeNode(2);
+root.right = new TreeNode(3);
+root.left.left = new TreeNode(4);
+root.left.right = new TreeNode(5);
+root.right.left = new TreeNode(6);
+root.right.right = new TreeNode(7);
+
+function preOrder(rootNode) {
+  if(rootNode != null) {
+    console.log(rootNode.value);
+    preOrder(rootNode.left);
+    preOrder(rootNode.right);
+  }
+}
+
+
+function InOrder(rootNode) {
+  if(rootNode != null) {
+    InOrder(rootNode.left);
+    console.log(rootNode.value);
+    InOrder(rootNode.right);
+  }
+}
+
+function postOrder(rootNode) {
+  if(rootNode != null) {
+    postOrder(rootNode.left);
+    postOrder(rootNode.right);
+    console.log(rootNode.value);
+
+  }
+}
+
+console.log("PreOrder Traversal");
+preOrder(root);
+
+console.log("InOrder Traversal");
+InOrder(root);
+
+console.log("PostOrder Traversal");
+postOrder(root);
