@@ -1,0 +1,242 @@
+                Jamboard link
+https://jamboard.google.com/d/1ZQogFXl6VbzsVOzFhEF35IFQewlmadm2V0846WwyS8U/viewer?f=0
+
+                Pastiebin link
+https://pastiebin.com/6371b8aa65065
+
+class TreeNode {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+
+class BinarySearchTree {
+  constructor() {
+    this.root = null;
+  }
+
+  add(value) {
+    var newNode = new TreeNode(value);
+
+    if(this.root == null) {
+      this.root = newNode;
+    } else {
+      this.insertNodeRec(this.root, newNode);
+    }
+  }
+
+  insertNodeRec(currNode, newNode) {
+    if(newNode.value > currNode.value) {
+
+      if(currNode.right == null) {
+
+        currNode.right = newNode;
+
+      } else {
+
+        this.insertNodeRec(currNode.right, newNode);
+
+      }
+    } else {
+        if(currNode.left == null) {
+
+          currNode.left = newNode;
+
+        } else {
+
+          this.insertNodeRec(currNode.left, newNode);
+
+        }
+      }
+
+    }
+
+    printTree() {
+      this.printTreeRec(this.root);
+    }
+
+    printTreeRec(currNode) {
+      if(currNode != null) {
+        this.printTreeRec(currNode.left);
+        console.log(currNode.value);
+        this.printTreeRec(currNode.right);
+      }
+    }
+
+
+    search(value) {
+      var currNode = this.root;
+
+      while(currNode != null) {
+        if(value < currNode.value){
+          currNode = currNode.left;
+        } else if(value > currNode.value) {
+          currNode = currNode.right;
+        } else {
+          return currNode;
+        }
+      }
+      return -1;
+    }
+
+
+    pred(value) {
+      var currNode = this.search(value);
+      currNode = currNode.left;
+      while(currNode.right != null) {
+        currNode = currNode.right;
+      }
+      return currNode.value;
+    }
+
+    succ(value) {
+      var currNode = this.search(value);
+      currNode = currNode.right;
+      while(currNode.left != null) {
+        currNode = currNode.left;
+      }
+      return currNode.value;
+    }
+  }
+
+var bst = new BinarySearchTree();
+bst.add(8);
+bst.add(3);
+bst.add(10);
+bst.add(9);
+bst.add(1);
+bst.add(6);
+bst.add(14);
+bst.add(4);
+bst.add(7);
+bst.add(13);
+bst.printTree();
+
+
+console.log("Searching " + bst.search(14).value)
+console.log("Pred " + bst.pred(8));
+console.log("Succ " + bst.succ(8));
+
+          Pastiebin link trying 
+ https://pastiebin.com/6371c64b1c56a
+ 
+ let dataArray1=`4 5 8`.split(" ");
+let dataArray2=`4 11 15`.split(" ");
+// let dataArray1=userInput[2].split(" ");
+// let dataArray2=userInput[3].split(" ");
+
+class Node{
+    constructor(data){
+        this.data=data;
+        this.next=null;
+    }
+}
+
+class SLinkedList{
+    constructor(){
+        this.head=null;
+        this.size=0;
+    }
+    
+    addNode(data){
+       
+        let node = new Node(data);
+        let currentNode=this.head;
+        if(currentNode===null){
+          //   console.log("runtest");
+          //   console.log(node);
+            this.head=node;
+            this.size++;
+        }
+        else{
+            
+            while(currentNode.next!==null){
+                currentNode=currentNode.next;
+              //   console.log("runtest");
+                 
+            }
+                       
+            currentNode.next=node;
+            this.size++;
+        }
+        
+    }
+    
+     
+      getResult(){
+      
+      let resultArray=[];      
+      let currentNode=this.head;     
+      while(currentNode!==null){
+          resultArray.push(currentNode.data);
+          currentNode=currentNode.next;
+      }
+      return resultArray;
+      
+  }
+}
+
+
+let list1 = new SLinkedList();
+
+for(let i=0;i<dataArray1.length;i++){
+    list1.addNode(dataArray1[i]);
+}
+
+// console.log(list1);
+// console.log(list1.getResult().join(" "));
+let list2 = new SLinkedList();
+
+for(let i=0;i<dataArray2.length;i++){
+    list2.addNode(dataArray2[i]);
+}
+// console.log(list2);
+// console.log(list2.getResult().join(" "));
+
+
+let list3 = new SLinkedList();
+
+let currentNode1=list1.head;
+let currentNode2=list2.head;
+
+// console.log(currentNode1);
+
+while((currentNode1!==null)&&(currentNode2!==null)){
+
+    // console.log(`${currentNode1.data} <= ${currentNode2.data}`);
+    if(currentNode1.data <= currentNode2.data){
+        // console.log(currentNode1.data);
+        list3.addNode(currentNode1.data);
+        currentNode1=currentNode1.next;
+    }
+    // console.log(`${currentNode2.data} <= ${currentNode1.data}`);
+    if(currentNode2.data <= currentNode1.data){
+        // console.log(currentNode2.data);
+        list3.addNode(currentNode2.data);
+        currentNode2=currentNode2.next;
+    }
+}
+
+
+while(currentNode1!==null){
+    // console.log(currentNode1.data);
+    list3.addNode(currentNode1.data);
+    currentNode1=currentNode1.next;
+}
+
+while(currentNode2!==null){
+    // console.log(currentNode2.data);
+    list3.addNode(currentNode2.data);
+    currentNode2=currentNode2.next;
+}
+
+// console.log(list3);
+console.log(list1.getResult().join(" "));
+console.log(list2.getResult().join(" "));
+console.log(list3.getResult().join(" "));
+
+
+                
