@@ -4,6 +4,40 @@
 https://jamboard.google.com/d/1s01fGSnCUEhDfChuH-L64s3g6dSopXSJ3uKq_CG8Bv8/viewer?f=0
 
                       Pasteibin link
-                      
+      https://pastiebin.com/63730922cd4a4
+      
+ function bubbleSort(arr) {
+  var n = arr.length;
+  for(var i = 0; i < n; i++) {
+    for(var j = 0; j < (n - i - 1); j++) {
+      if(arr[j] > arr[j+1]) {
+        var tmp = arr[j];
+        arr[j] = arr[j+1];
+        arr[j+1] = tmp;
+      }
+    }
+  }
+  console.log(arr);
+}
+//bubbleSort([7,3,8,9,1,5]);
+
+
+function insertionSort(arr) {
+  var n = arr.length;
+  let i, key, j;
+  for(i = 1; i < n; i++) {
+    key = arr[i];
+    j = i-1;
+    while(j >= 0 && arr[j] > key) {
+      arr[j+1] = arr[j];
+      j = j-1;
+    }
+    arr[j+1] = key;
+  }
+  console.log(arr);
+}
+insertionSort([7,3,8,9,1,5]);
+
+                     
                             
                             
